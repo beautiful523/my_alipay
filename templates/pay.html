@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>老周zhifubao项目</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+</head>
+<body>
+
+<div id="oper_btn">点击支付</div>
+<script type="text/javascript">
+    $(function () {
+        $("#oper_btn").click(function () {
+            $.ajax({
+            url: "{{url_for('order_pay')}}",
+            type: "GET",
+            success: function (res) {
+                if (res.message == "OK") {
+                    window.location.href = res.pay_url;
+                    $.ajax({
+                        url: "{{url_for('check_pay')}}",
+                        type: "GET",
+                        success:function (res) {
+                            if(res.res == 3){
+                                location.reload(
+                                    alert("成功")
+                                )
+                            }
+                            else {
+                                alert("失败")
+                            }
+                        }
+                    })
+                } else {
+                    alert("没有获取到url")
+                }
+            }
+        })
+        })
+
+    })
+</script>
+</body>
+</html>
