@@ -279,7 +279,6 @@ class BaseAliPay():
         data = self.build_body("alipay.trade.query", biz_content)
 
         url = self._gateway + "?" + self.sign_data(data)
-        print(url)
         raw_string = urlopen(url, timeout=15).read().decode("utf-8")
         return self._verify_and_return_sync_response(raw_string, "alipay_trade_query_response")
 
@@ -424,7 +423,7 @@ class BaseAliPay():
         }
         biz_content.update(**kwargs)
         data = self.build_body("alipay.trade.precreate", biz_content)
-
+        print(111, biz_content)
         url = self._gateway + "?" + self.sign_data(data)
         raw_string = urlopen(url, timeout=15).read().decode("utf-8")
         return self._verify_and_return_sync_response(raw_string, "alipay_trade_precreate_response")

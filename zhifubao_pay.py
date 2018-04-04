@@ -33,7 +33,7 @@ def order_pay():
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
     order_string = alipay.api_alipay_trade_page_pay(
-        out_trade_no="12345678123",  # 订单id
+        out_trade_no="12345678124",  # 订单id
         total_amount="99",  # 实付款
         subject='水杯',  # 订单标题
         return_url='https://www.baidu.com',
@@ -47,7 +47,7 @@ def order_pay():
 
 @app.route('/check_pay/', methods=["GET"])
 def check_pay():
-    order_id = "12345678123"
+    order_id = "12345678124"
     alipay = AliPay(
         appid="2016090800465324",  # 应用appid
         app_notify_url='http://39.106.96.112',  # 默
@@ -59,6 +59,7 @@ def check_pay():
 
     while True:
         result = alipay.api_alipay_trade_query(order_id)
+        print(result)
         # 接口是否调用成功
         code = result.get('code')
         print(code)
