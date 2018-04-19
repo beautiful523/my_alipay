@@ -61,7 +61,6 @@ def order_pay():
         print("now sleep 3s")
         time.sleep(5)
         result = alipay.api_alipay_trade_query(out_trade_no=str(n))
-        print(result)
         if result.get("trade_status", "") == "TRADE_SUCCESS":
             paid = True
             print("success")

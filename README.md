@@ -1,1 +1,5 @@
-# my_alipay
+- 虚拟环境是python3.5_venv
+- 如果没有虚拟环境，需要的软件有：flask，crypto，pycrypto，qrcode，pillow
+- (重新安装crypto的话)去虚拟环境下的这个目录/home/zyw/test/python3.5_venv/lib/python3.5/site-packages将crpto重命名为Crypto
+- 运行zhufubao_pay_erweima.py
+- 刷新一下目录，点击新加载的二维码图片
